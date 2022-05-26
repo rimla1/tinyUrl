@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+    <h1>TinyURL</h1>
+
+    <form action="/shortUrls" method="POST" class="my-3 form-inline">
+        <input required placeholder="Long Url" type="url" name="longUrl" id="longUrl" class="form-control col mr-2">
+        <button class="btn btn-success mt-2" type="submit">Create short url</button>
+    </form>
+
+    <table class="table table-stripe">
+        <thread>
+            <tr>
+                <th>Long Url</th>
+                <th>Short Url</th>
+                <th>Clicks</th>
+            </tr>
+        </thread>
+        <tbody>
+            <% shortUrls.forEach(shortUrl => { %>
+                <tr>
+                    <td><a href="<%= shortUrl.longUrl %>"><%= shortUrl.longUrl %></a></td>
+                    <td><a href="<%= shortUrl.shortUrl %>"><%= shortUrl.shortUrl %></a></td>
+                    <td><%= shortUrl.clicks %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
