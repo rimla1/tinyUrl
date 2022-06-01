@@ -17,11 +17,13 @@
             </tr>
         </thread>
         <tbody class="mt-2">
+            <% shortUrls.forEach(shortUrl => { %>
                 <tr>
                     <td><a href="<%= shortUrl.longUrl %>"><%= shortUrl.longUrl %></a></td>
                     <td><a href="<%= shortUrl.shortUrl %>"><%= shortUrl.shortUrl %></a></td>
                     <td><%= shortUrl.clicks %></td>
                 </tr>
+            <% }) %>
         </tbody>
     </table>
 </div>

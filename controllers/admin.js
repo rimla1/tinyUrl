@@ -1,7 +1,7 @@
 const ShortUrl = require("../models/shortUrl");
 
-exports.getUrl = async (req, res, next) => {
-  const shortUrl = await ShortUrl.findOne().sort({ clicks: -1 }).limit(1);
-  console.log(shortUrl);
-  res.render("admin", { shortUrl: shortUrl });
+exports.getUrls = async (req, res, next) => {
+  const shortUrls = await ShortUrl.find().sort({ clicks: -1 }).limit(3);
+  console.log(shortUrls);
+  res.render("admin", { shortUrls: shortUrls });
 };
